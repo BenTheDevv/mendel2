@@ -1,0 +1,55 @@
+body { margin: 0; overflow: hidden; font-family: 'Georgia', serif; background: black; }
+canvas { display: block; }
+
+#ui-container {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    width: 85%; background: rgba(10, 12, 15, 0.95); color: #ecf0f1;
+    padding: 25px 35px; border-radius: 12px; border-top: 4px solid #27ae60;
+    pointer-events: none; text-align: left; display: none;
+    box-shadow: 0 10px 50px rgba(0,0,0,1); z-index: 5;
+}
+
+#math-overlay {
+    position: absolute; top: 100px; right: 50px;
+    width: 250px; background: rgba(253, 245, 230, 0.9);
+    color: #2c3e50; padding: 20px; border: 2px solid #8b4513;
+    border-radius: 5px; box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    display: none; font-family: 'Courier New', Courier, monospace;
+    z-index: 6; transform: rotate(2deg);
+}
+
+#crosshair {
+    position: absolute; top: 50%; left: 50%; width: 6px; height: 6px;
+    background-color: rgba(255, 255, 255, 0.8); border-radius: 50%;
+    transform: translate(-50%, -50%); pointer-events: none;
+}
+
+#pause-menu {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); color: white; display: flex;
+    flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; cursor: pointer; z-index: 20; backdrop-filter: blur(5px);
+}
+
+.blink-text { animation: pulse 1.5s infinite; color: #f1c40f; margin-top: 30px; font-weight: bold; font-family: sans-serif; }
+@keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+
+#hud {
+    position: absolute; top: 20px; left: 20px; color: white;
+    background: rgba(0,0,0,0.7); padding: 10px 20px;
+    border-radius: 5px; display: none; border-left: 4px solid #f1c40f;
+    font-family: sans-serif;
+    transition: opacity 1s;
+}
+
+#fade-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: black; opacity: 0; pointer-events: none;
+    transition: opacity 2s, background-color 2s; z-index: 15;
+    display: flex; justify-content: center; align-items: center;
+}
+
+#timeskip-text {
+    color: #2c3e50; font-size: 3em; font-weight: bold; 
+    opacity: 0; transition: opacity 1s; font-family: 'Georgia', serif; text-align: center;
+}
